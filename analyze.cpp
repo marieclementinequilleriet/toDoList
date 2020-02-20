@@ -166,18 +166,31 @@ std::vector<Task> get_tasks(std::string const chemin)
     return liste_Taches;
 }
 
-/*std::string Task_to_string (Task tache)
+std::string Task_to_string (Task tache)
 {
     std::string res {""} ;
     res = std::to_string(tache.get_id()) +"/" + tache.get_title() +"/" + tache.get_description() +"/" + tache.get_creation().Date_to_string()
     +"/" + tache.get_closure().Date_to_string() + tache.get_dueFor().Date_to_string() +"/" + tache.get_status() +"/" + 
     std::to_string(tache.get_advancement()) +"/" + tache.get_priority() +"/" + tache.get_comments()
-    +"/" + subTask_to_string(tache.get_subTasks()) +"&"  ;
+    +"/" + subTask_to_string(tache.get_subTasks()) +"/&"  ;
     return res ;
     
 }
 
-void enregistrer(std::vector<Task> listeTaches) 
+void enregistrer(std::vector<Task> listeTaches,std::string const chemin) 
 {
-    std::string const (utilisateur.txt)
-}*/
+
+    std::ofstream enEcriture (chemin.c_str() , std::ios::app) ;
+    if (enEcriture)
+    {
+        for (long unsigned int i {0} ; i< listeTaches.size() ; i++)
+        {
+            enEcriture<< Task_to_string(listeTaches[i]) << std::endl ;
+        }
+        enEcriture.close() ;
+    }
+    else
+    {
+       std::cout<< "Erreur, le fichier n'est pas ouvert"  << std::endl ;
+    }
+} 

@@ -8,7 +8,7 @@
 class Date
 {
     public :
-    Date();
+    Date() ;
     Date(int jour, int mois, int annee) ;
     void afficher_date() ;
     int getDay() ;

@@ -49,7 +49,7 @@ Date string_to_Date(std::string date)
         recupere[j]="";
     }*/
     int i = 0 ;
-    for (unsigned j = 0 ; j < date.size() ; j++)
+    for (unsigned j {0} ; j < date.size() ; j++)
     {
         if (date[j] ==' ')
         {

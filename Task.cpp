@@ -188,8 +188,8 @@ void Task::end_task()
 
 std::string subTask_to_string(std::vector<int> sousTache)
 {
-    std::string res = "" ;
-    for(long unsigned int i = 0 ; i<sousTache.size() ; i++)
+    std::string res {""} ;
+    for(long unsigned int i {0} ; i<sousTache.size() ; i++)
     {
         res+=(std::to_string(res[i])) ;
     }
