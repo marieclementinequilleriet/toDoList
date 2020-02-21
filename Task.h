@@ -38,10 +38,8 @@ class Task
     std::vector<int> get_subTasks() ;
 
     void print_task() ;
-    void Task::print_subTasks() ;
+    void print_subTasks() ;
     void end_task() ;
-    std::string Task_to_string (Task tache) ;
-    std::string subTask_to_string(std::vector<int> sousTache) ;
     
 
     private :
@@ -57,5 +55,8 @@ class Task
     std::string m_comments ;
     std::vector<int> m_subTask ;
 } ;
+
+std::string subTask_to_string(std::vector<int> sousTache) ;
+std::string Task_to_string (Task tache) ;
 
 #endif

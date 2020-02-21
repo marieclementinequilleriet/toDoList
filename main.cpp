@@ -23,15 +23,17 @@ int main ()
         switch (action)
         {
         case 'C':
-            /* code */
+            
             break;
         case 'M' :
             modifier_tache(liste_Taches) ;
+
             break;
         case 'A' :
             afficher_tout(liste_Taches) ;
             break ;
         case 'Q' :
+            enregistrer(liste_Taches, chemin) ;
             return 0;
             break;
         

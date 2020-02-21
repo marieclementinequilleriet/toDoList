@@ -52,23 +52,32 @@ char actions_standards()
 
 void afficher_tout(std::vector<Task> liste_Taches) 
 {
-    for (long unsigned int i = 0 ; i< liste_Taches.size(); i++)
+    if (liste_Taches.size() == 0)
     {
-        std::cout<< "n°" << liste_Taches[i].get_id() << "     " << liste_Taches[i].get_title <<"       "<< liste_Taches[i].get_status << std::endl ;
+        std::cout << "Vous n'avez pas de tâches enregistrées" << std::endl ;
+    }
+    else
+    {
+        for (long unsigned int i = 0 ; i< liste_Taches.size(); i++)
+        {
+            std::cout<< "n°" << liste_Taches[i].get_id() << "     " << liste_Taches[i].get_title() <<"       "
+            << liste_Taches[i].get_status() << std::endl ;
+        }
     }
 }
 
 void modifier_tache(std::vector<Task> liste_Taches)
 {
     std::cout << "Connaissez-vous l'identifiant de la tache à modifier ?  (O/N)" << std::endl ;
-    bool connu ;
+    char connu ;
     std::cin >> connu ;
     if (connu == 'N') 
     {
         afficher_tout(liste_Taches) ;
     }
+    else {}
     std::cout << "Entrez le numéro de la tâche à modifier" << std::endl ;
-    int a_modifier ;
+    int a_modifier {0};
     std::cin >> a_modifier ;
     liste_Taches[a_modifier].print_task() ;
     std::cout << "Pour clore la tache, tapez 0" << std::endl ;
@@ -151,11 +160,33 @@ void modifier_tache(std::vector<Task> liste_Taches)
         
         case 10 :
             liste_Taches[a_modifier].print_subTasks() ;
-            std::cout << "Pour afficher" ;
+            std::cout << "Pour ajouter une sous_tache, tapez A" << std::endl ;
+            std::cout << "Pour supprimer une sous-tache, tapez S" << std::endl ;
+            char a_faire ;
+            if (a_faire == 'A')
+            {
+                std::cout << "Quelle sous tâche voulez-vous ajouter ? Entrez son identifiant " << std::endl ;
+                afficher_tout(liste_Taches) ;
+                int a_ajouter ;
+                std::cin >> a_ajouter ;
+                liste_Taches[a_modifier].add_subTask(a_ajouter) ;
+            }
+            else
+            {
+                if (a_faire=='S')
+                {
+                std::cout << "Quelle sous tâche voulez-vous supprimer ? Entrez son identifiant " << std::endl ;
+                afficher_tout(liste_Taches) ;
+                int a_supprimer ;
+                std::cin >> a_supprimer ;
+                liste_Taches[a_modifier].del_subTask(a_supprimer) ;
+                }
+            }
+            
             break ;
         
     default:
-        std::cout << "Erreur : le sybole entré n'est pas reconnu" << std::endl ;
+        std::cout << "Erreur : le symbole entré n'est pas reconnu" << std::endl ;
         modifier_tache(liste_Taches) ;
         break;
     }
