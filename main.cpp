@@ -7,25 +7,21 @@
 #include "analyze.h"
 
 
-/*void afficher_tout()
+bool demarrage()
 {
-
+    std::cout << "Bienvenue dans votre gestionnaire de tâche." <<std::endl ;
+    std::cout<< "Avez-vous déjà un compte utilisateur ?" << std::endl ;
+    std::cout << " Tapez O pour Oui et N pour Non" << std::endl ;
+    char reponse;
+    std::cin >> reponse ;
+    bool utilisateur {reponse=='O'} ;
 }
-
-Task* demarrer ()
-{
-
-}
-
-void save()
-{
-
-} */
 
 int main ()
 {
-    std::vector<Task> listeTaches (get_tasks("utilisateur1.txt") ) ;
-    Task tache_un {listeTaches[0]} ;
+    bool utilisateur ;
+    std::string nom_utilisateur ;
+    std::vector<Task> liste_Taches ;
     return 0;
 }  
 
