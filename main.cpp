@@ -15,6 +15,7 @@ bool demarrage()
     char reponse;
     std::cin >> reponse ;
     bool utilisateur {reponse=='O'} ;
+    return utilisateur ;
 }
 
 int main ()
