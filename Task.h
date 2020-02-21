@@ -12,7 +12,6 @@ class Task
     Task() ;
     Task(int id, std::string titre , std::string description , Date creation , Date cloture , Date limite , std::string statut , 
     int avancement , std::string priorite , std::string commentaire , std::vector<int> sousTache) ; 
-    void get_attr() ;
     void set_id (int nvelId) ;
     void set_title (std::string nveauTitre) ;
     void set_description(std::string nvelleDescr) ;
@@ -39,7 +38,9 @@ class Task
     std::vector<int> get_subTasks() ;
 
     void print_task() ;
+    void Task::print_subTasks() ;
     void end_task() ;
+    std::string Task_to_string (Task tache) ;
     std::string subTask_to_string(std::vector<int> sousTache) ;
     
 

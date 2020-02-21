@@ -34,10 +34,6 @@ int avancement , std::string priorite , std::string commentaire , std::vector<in
     m_subTask=sousTache ; 
 } 
 
-void Task::get_attr()
-{
-    std::cout<< m_id ;
-}
 
 void Task::set_id (int nvelId)
 {
@@ -179,6 +175,22 @@ void Task::print_task()
     
 }
 
+void Task::print_subTasks()
+{
+    int nbSousTaches (m_subTask.size());
+    if (nbSousTaches == 0)
+    { 
+        std::cout<< "Pas de sous-tâches" <<std::endl ;
+    }
+    else
+    {
+        std::cout << "Sous-tâches à réaliser : " << std::endl ;
+        for (int i(0) ; i< nbSousTaches ; i++) 
+        { std::cout << m_subTask[i] << std::endl ; }
+    }
+
+}
+
 void Task::end_task() 
 {
     m_status="Termine" ;
@@ -186,12 +198,25 @@ void Task::end_task()
     set_closure(saisir_date());
 }
 
+std::string Task_to_string (Task tache)
+{
+    std::string res = "" ;
+    res = std::to_string(tache.get_id()) +"/" + tache.get_title() +"/" + tache.get_description() +"/" + tache.get_creation().Date_to_string()
+    +"/" + tache.get_closure().Date_to_string() + tache.get_dueFor().Date_to_string() +"/" + tache.get_status() +"/" + 
+    std::to_string(tache.get_advancement()) +"/" + tache.get_priority() +"/" + tache.get_comments()
+    +"/" + subTask_to_string(tache.get_subTasks()) +"/&"  ;
+    return res ;
+    
+}
+
 std::string subTask_to_string(std::vector<int> sousTache)
 {
-    std::string res {""} ;
-    for(long unsigned int i {0} ; i<sousTache.size() ; i++)
+    std::string res = "" ;
+    for(long unsigned int i = 0 ; i<sousTache.size() ; i++)
     {
         res+=(std::to_string(res[i])) ;
+        res+=('/');
     }
     return res ;
 }
+
