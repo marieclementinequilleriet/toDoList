@@ -186,12 +186,24 @@ void Task::end_task()
     set_closure(saisir_date());
 }
 
+std::string Task_to_string (Task tache)
+{
+    std::string res = "" ;
+    res = std::to_string(tache.get_id()) +"/" + tache.get_title() +"/" + tache.get_description() +"/" + tache.get_creation().Date_to_string()
+    +"/" + tache.get_closure().Date_to_string() + tache.get_dueFor().Date_to_string() +"/" + tache.get_status() +"/" + 
+    std::to_string(tache.get_advancement()) +"/" + tache.get_priority() +"/" + tache.get_comments()
+    +"/" + subTask_to_string(tache.get_subTasks()) +"/&"  ;
+    return res ;
+    
+}
+
 std::string subTask_to_string(std::vector<int> sousTache)
 {
-    std::string res {""} ;
-    for(long unsigned int i {0} ; i<sousTache.size() ; i++)
+    std::string res = "" ;
+    for(long unsigned int i = 0 ; i<sousTache.size() ; i++)
     {
         res+=(std::to_string(res[i])) ;
+        res+=('/');
     }
     return res ;
 }

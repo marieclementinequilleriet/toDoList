@@ -25,7 +25,7 @@ void save()
 int main ()
 {
     std::vector<Task> listeTaches (get_tasks("utilisateur1.txt") ) ;
-    Task tache_un {listeTaches[0]} ;
+    Task tache_un = listeTaches[0] ;
     return 0;
 }  
 

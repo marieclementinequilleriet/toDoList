@@ -40,6 +40,7 @@ class Task
 
     void print_task() ;
     void end_task() ;
+    std::string Task_to_string (Task tache) ;
     std::string subTask_to_string(std::vector<int> sousTache) ;
     
 
